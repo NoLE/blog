@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   #ahora si le decimos que la pagina principal es www.mipagina.cl/welcome/index, hacemos lo que esta en el codigo
   #
   #get "inicio", to: "welcome#index" #con esto reenomramos la ruta para asi ir a www.mipagina.cl/inicio
+  get "/dashboard", to: "welcome#dashboard"
 
+
+  put "/articles/:id/publish", to: "articles#publish"
 
 =begin
 

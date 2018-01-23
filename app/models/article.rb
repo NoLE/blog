@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+
+  include AASM
   belongs_to :user
   has_many :comments
   has_many :has_categories
@@ -12,12 +14,28 @@ class Article < ApplicationRecord
   has_attached_file :cover, styles: { medium: "1280x720>", thumb: "800x600>" }#, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\z/
 
+  scope :publicados, ->{where(state: "published")}
+
+  scope :ultimos, -> {order("created_at DESC")}
+
   def categories=(value)
     @categories = value
   end
 
   def update_visits_count
     self.update(visits_count: self.visits_count + 1)
+  end
+  aasm column: "state" do
+    state :in_draft, initial: true
+    state :published
+
+    event :publish do
+      transitions from: :in_draft, to: :published
+    end
+
+    event :unpublish do
+      transitions form: :published, to: :in_draft
+    end
   end
 
   private

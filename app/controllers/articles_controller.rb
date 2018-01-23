@@ -3,8 +3,12 @@ class ArticlesController < ApplicationController
   #before_action :validate_user, except: [:show,:index]
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_article, except: [:index,:new,:create]
+  before_action :authenticate_editor!, only: [:new, :create, :update]
+  before_action :authenticate_admin!, only: [:destroy, :publish]
+
   def index
-   @articles = Article.all
+   @articles = Article.paginate(page: params[:page], per_page: 2).publicados.ultimos
+
   end
   def show
     @article.update_visits_count
@@ -45,6 +49,11 @@ class ArticlesController < ApplicationController
   end
   def edit
 
+  end
+
+  def publish
+    @article.publish!
+    redirect_to @article
   end
 
   private
