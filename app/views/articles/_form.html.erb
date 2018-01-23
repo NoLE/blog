@@ -12,7 +12,7 @@
        Portada <%=  f.file_field :cover %>
       </div>
       <div class="field">
-        <%=  f.text_area :body, placeholder:"Escribe aqui el Articulo", style:"height: 250px;", class:"form-control" %>
+        <%=  f.text_area :body, id: 'froala-editor', placeholder:"Escribe aqui el Articulo", style:"height: 550px;" %>
       </div>
 
       <div class="field">
@@ -27,3 +27,16 @@
         <%=  f.submit "Guardar", class: "btn white" %>
       </div>
 <% end %>
+
+<script>
+    $(function() {
+        $('textarea#froala-editor').froalaEditor({
+            language: 'fa',
+            toolbarStickyOffset: 100,
+            heightMin: 250,
+            heightMax: 500
+            /*toolbarButtons: ['undo', 'redo' , '|', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'outdent', 'indent', 'clearFormatting', 'insertTable', 'html'],
+            toolbarButtonsXS: ['undo', 'redo' , '-', 'bold', 'italic', 'underline']*/
+        })
+    });
+</script>

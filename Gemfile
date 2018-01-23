@@ -27,6 +27,8 @@ gem 'devise'
 gem 'paperclip'
 gem 'aasm'
 gem 'will_paginate'
+gem 'wysiwyg-rails'
+gem 'font-awesome-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

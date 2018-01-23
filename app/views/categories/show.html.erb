@@ -5,7 +5,7 @@
 <% @category.articles.each do |article| %>
   <h3><%= link_to article.title, article %></h3>
   <div>
-    <%= article.body %> - <%= link_to "Eliminar", article, class:"red", method: :delete %>
+    <%= article.body.html_safe %> - <%= link_to "Eliminar", article, class:"red", method: :delete %>
   </div>
 <% end %>
 
