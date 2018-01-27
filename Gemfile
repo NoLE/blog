@@ -29,6 +29,7 @@ gem 'aasm'
 gem 'will_paginate'
 gem 'wysiwyg-rails'
 gem 'font-awesome-rails'
+gem 'sanitize'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

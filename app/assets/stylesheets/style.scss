@@ -42,6 +42,49 @@ a, a:visited{
 .field, .top_space, .actions{
   margin-top: 1em;
 }
+.relative{
+  position: relative;
+}
+.absolute{
+  position: absolute;
+}
+.article-height{
+  height: 300px;
+}
+.background-cover{
+  background-position: center;
+  background-size: cover;
+}
+.text-center{
+  text-align: center;
+}
+.top-space{
+  margin-top: 15px;
+}
+.ligth-border{
+
+}
+.be-big{
+  font-size: 2em;
+}
+.be-small{
+  font-size: 12px;
+}
+.underline{
+  text-decoration: underline;
+}
+.bottom-space{
+  margin-bottom: 2em;
+}
+.text-right{
+  text-align: right;
+}
+.text-justify{
+  text-align: justify;
+}
+.grey{
+  color: #616161;
+}
 .form-control {
   border: none;
   border-bottom: 1px solid;
